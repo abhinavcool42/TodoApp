@@ -18,7 +18,15 @@ class _CreateTodoWidgetState extends State<CreateTodoWidget> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text("Create Todo"),
+      title: Row(
+        children: const [
+          Icon(Icons.checklist),
+          SizedBox(
+            width: 10.0,
+          ),
+          Text("Create Todo"),
+        ],
+      ),
       content: Container(
         margin: EdgeInsets.symmetric(horizontal: 1.0),
         height: 300,

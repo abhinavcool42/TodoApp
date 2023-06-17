@@ -42,7 +42,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.email),
                     hintText: 'Email',
-                    enabledBorder: OutlineInputBorder(),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                      width: 3,
+                      color: Colors.purple,
+                    )),
                   ),
                 ),
               ),
@@ -55,7 +59,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   controller: loginPasswordController,
                   decoration: InputDecoration(
                       hintText: 'Password',
-                      enabledBorder: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                        width: 3,
+                        color: Colors.purple,
+                      )),
                       prefixIcon: Icon(Icons.password),
                       suffixIcon: Icon(
                         Icons.visibility,

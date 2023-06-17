@@ -69,13 +69,25 @@ class _HomeScreenState extends State<HomeScreen> {
                 return Card(
                   child: ListTile(
                     isThreeLine: true,
-                    title: Padding(
-                      padding: const EdgeInsets.only(bottom: 10.0),
-                      child: Text(title,
-                          style: TextStyle(
-                            fontSize: 35,
-                            color: Colors.purple,
-                          )),
+                    title: Row(
+                      children: [
+                        Icon(
+                          Icons.check,
+                          color: Colors.purple,
+                          size: 40,
+                        ),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 10.0),
+                          child: Text(title,
+                              style: TextStyle(
+                                fontSize: 35,
+                                color: Colors.purple,
+                              )),
+                        ),
+                      ],
                     ),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
