@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors, file_names, avoid_unnecessary_containers, unnecessary_string_interpolations
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
