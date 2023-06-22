@@ -21,7 +21,7 @@ signUpUser(
       FirebaseAuth.instance.signOut();
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => LoginScreen()),
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
       );
     });
   } on FirebaseAuthException catch (e) {
@@ -48,117 +48,113 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Sign Up"),
+        title: const Text("Sign Up"),
       ),
       body: SingleChildScrollView(
-        child: Container(
-          child: Column(
-            children: [
-              Container(
-                alignment: Alignment.center,
-                width: double.infinity,
-                child: Image.asset('assets/images/loginicon.jpg'),
+        child: Column(
+          children: [
+            Container(
+              alignment: Alignment.center,
+              width: double.infinity,
+              child: Image.asset('assets/images/loginicon.jpg'),
+            ),
+            const SizedBox(
+              height: 10.0,
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 30.0),
+              child: TextFormField(
+                controller: userNameController,
+                decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.person),
+                  hintText: 'Username',
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                    width: 3,
+                    color: Colors.purple,
+                  )),
+                ),
               ),
-              SizedBox(
-                height: 10.0,
+            ),
+            const SizedBox(
+              height: 10.0,
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 30.0),
+              child: TextFormField(
+                controller: userEmailController,
+                decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.email),
+                  hintText: 'Email',
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                    width: 3,
+                    color: Colors.purple,
+                  )),
+                ),
               ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 30.0),
-                child: TextFormField(
-                  controller: userNameController,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.person),
-                    hintText: 'Username',
+            ),
+            const SizedBox(
+              height: 10.0,
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 30.0),
+              child: TextFormField(
+                controller: userPasswordController,
+                decoration: const InputDecoration(
+                    hintText: 'Password',
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                       width: 3,
                       color: Colors.purple,
                     )),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 30.0),
-                child: TextFormField(
-                  controller: userEmailController,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.email),
-                    hintText: 'Email',
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                      width: 3,
-                      color: Colors.purple,
+                    prefixIcon: Icon(Icons.password),
+                    suffixIcon: Icon(
+                      Icons.visibility,
                     )),
-                  ),
-                ),
               ),
-              SizedBox(
-                height: 10.0,
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 30.0),
-                child: TextFormField(
-                  controller: userPasswordController,
-                  decoration: InputDecoration(
-                      hintText: 'Password',
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                        width: 3,
-                        color: Colors.purple,
-                      )),
-                      prefixIcon: Icon(Icons.password),
-                      suffixIcon: Icon(
-                        Icons.visibility,
-                      )),
-                ),
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              ElevatedButton(
-                onPressed: () async {
-                  var userName = userNameController.text.trim();
-                  var userEmail = userEmailController.text.trim();
-                  var userPassword = userPasswordController.text.trim();
+            ),
+            const SizedBox(
+              height: 10.0,
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                var userName = userNameController.text.trim();
+                var userEmail = userEmailController.text.trim();
+                var userPassword = userPasswordController.text.trim();
 
-                  await FirebaseAuth.instance
-                      .createUserWithEmailAndPassword(
-                          email: userEmail, password: userPassword)
-                      .then((value) => {
-                            signUpUser(
-                              context,
-                              userName,
-                              userEmail,
-                              userPassword,
-                            ),
-                          });
-                },
-                child: Text("Sign Up"),
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()),
-                  );
-                },
-                child: Container(
-                  child: Card(
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text("Already have an account?"),
-                    ),
-                  ),
+                await FirebaseAuth.instance
+                    .createUserWithEmailAndPassword(
+                        email: userEmail, password: userPassword)
+                    .then((value) => {
+                          signUpUser(
+                            context,
+                            userName,
+                            userEmail,
+                            userPassword,
+                          ),
+                        });
+              },
+              child: const Text("Sign Up"),
+            ),
+            const SizedBox(
+              height: 10.0,
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginScreen()),
+                );
+              },
+              child: const Card(
+                child: Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Text("Already have an account?"),
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );

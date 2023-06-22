@@ -24,26 +24,25 @@ class _EditTodoWidgetState extends State<EditTodoWidget> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text(
+      title: const Text(
         "Edit Todo",
       ),
       content: Container(
-          margin: EdgeInsets.symmetric(horizontal: 1.0),
+          margin: const EdgeInsets.symmetric(horizontal: 1.0),
           height: 300,
           width: double.infinity,
           child: Column(
             children: [
               TextFormField(
-                controller: titleController
-                  ..text = "${widget.title.toString()}",
+                controller: titleController..text = widget.title.toString(),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10.0,
               ),
               TextFormField(
-                controller: todoController..text = "${widget.todo.toString()}",
+                controller: todoController..text = widget.todo.toString(),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10.0,
               ),
               ElevatedButton(
@@ -59,7 +58,7 @@ class _EditTodoWidgetState extends State<EditTodoWidget> {
                     },
                   );
                 },
-                child: Text("Update Todo"),
+                child: const Text("Update Todo"),
               ),
             ],
           )),

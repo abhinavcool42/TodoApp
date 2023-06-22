@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
               FirebaseAuth.instance.signOut();
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => LoginScreen()),
+                MaterialPageRoute(builder: (context) => const LoginScreen()),
               );
             },
             child: const Icon(Icons.logout),
@@ -70,18 +70,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     isThreeLine: true,
                     title: Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.check,
                           color: Colors.purple,
                           size: 40,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10.0,
                         ),
                         Padding(
                           padding: const EdgeInsets.only(bottom: 10.0),
                           child: Text(title,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 35,
                                 color: Colors.purple,
                               )),
@@ -93,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Text(
                           todo,
-                          style: TextStyle(fontSize: 20),
+                          style: const TextStyle(fontSize: 20),
                         ),
                         const SizedBox(
                           height: 10.0,
@@ -102,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           GetTimeAgo.parse(
                             finalDate,
                           ),
-                          style: TextStyle(fontSize: 10),
+                          style: const TextStyle(fontSize: 10),
                         ),
                       ],
                     ),

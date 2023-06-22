@@ -17,8 +17,8 @@ class _CreateTodoWidgetState extends State<CreateTodoWidget> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Row(
-        children: const [
+      title: const Row(
+        children: [
           Icon(Icons.checklist),
           SizedBox(
             width: 10.0,
@@ -27,33 +27,29 @@ class _CreateTodoWidgetState extends State<CreateTodoWidget> {
         ],
       ),
       content: Container(
-        margin: EdgeInsets.symmetric(horizontal: 1.0),
+        margin: const EdgeInsets.symmetric(horizontal: 1.0),
         height: 300,
         width: double.infinity,
         child: Column(
           children: [
-            Container(
-              child: TextFormField(
-                controller: titleController,
-                maxLines: null,
-                decoration: InputDecoration(
-                  hintText: "Add Title",
-                ),
+            TextFormField(
+              controller: titleController,
+              maxLines: null,
+              decoration: const InputDecoration(
+                hintText: "Add Title",
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20.0,
             ),
-            Container(
-              child: TextFormField(
-                controller: todoController,
-                maxLines: null,
-                decoration: InputDecoration(
-                  hintText: "Add Todo",
-                ),
+            TextFormField(
+              controller: todoController,
+              maxLines: null,
+              decoration: const InputDecoration(
+                hintText: "Add Todo",
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20.0,
             ),
             ElevatedButton(
@@ -77,7 +73,7 @@ class _CreateTodoWidgetState extends State<CreateTodoWidget> {
                   }
                 }
               },
-              child: Text("Add Todo"),
+              child: const Text("Add Todo"),
             )
           ],
         ),
